@@ -1,0 +1,39 @@
+#spring:
+#    cloud:
+#        gateway: 
+#            routes:
+#              - id: student-service-route
+#                uri: lb://STUDENT-SERVER
+#                predicates:
+#                    - Path=/student/**
+#                  
+#                - id: staff-service-route
+#                uri: lb://STUDENT-SERVER
+#                predicates:
+#                    - Path=/student/**
+#                   
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: student-service-route
+          uri: lb://STUDENT-SERVER
+          predicates:
+            - Path=/student/**
+
+        - id: staff-service-route
+          uri: lb://STAFF-SERVER
+          predicates:
+            - Path=/staff/**
+            
+        - id: registration-service-route
+          uri: lb://USER_REGISTRATION-SERVER
+          predicates:
+            - Path=/auth/**
+           
+        - id: course-server
+          uri: lb//COURSE-SERVER
+          predicates:
+             - Path=/Astaff/**
+           
